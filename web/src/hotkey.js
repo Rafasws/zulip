@@ -670,7 +670,8 @@ export function process_hotkey(e, hotkey) {
     }
 
     if (hotkey.message_view_only && gear_menu.is_open()) {
-        return false;
+        gear_menu.close();
+        return true;
     }
 
     if (overlays.settings_open() && !popovers.user_info_popped()) {

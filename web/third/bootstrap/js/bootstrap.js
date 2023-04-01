@@ -393,9 +393,14 @@
 
       isActive = $parent.hasClass('open')
 
-      if (!isActive || (isActive && e.keyCode == 27)) {
+      if (isActive && e.keyCode == 27) {
         if (e.which == 27) $parent.find(toggle).focus()
         return $this.click()
+
+      }
+      else if (!isActive) {
+        this.blur()
+        return
       }
 
       $items = $('[role=menu] li:not(.divider):visible a', $parent)
